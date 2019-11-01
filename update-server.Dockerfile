@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-MAINTAINER Mihoko-Okayami <https://hub.docker.com/r/mihokookayami/rust/>
+LABEL maintainer="Mihoko-Okayami (https://hub.docker.com/r/mihokookayami/rust/)"
 
 RUN set -eux; \
 	apt-get update && apt-get install -y ca-certificates lib32gcc1 wget; \
