@@ -3,8 +3,8 @@ FROM debian:stable-slim
 MAINTAINER Mihoko-Okayami <https://hub.docker.com/r/mihokookayami/rust/>
 
 RUN set -eux; \
-	apt-get update && apt-get install -y --no-install-recommends libsqlite3-0 lib32gcc1t; \
-	apt-get autoremove && apt-get clean; \
+	apt-get update && apt-get install -y libsqlite3-0 lib32gcc1; \
+	apt-get autoremove -y && apt-get clean; \
 	ulimit -n 2048
 
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/RustDedicated_Data/Plugins/x86_64
