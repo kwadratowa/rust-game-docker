@@ -1,10 +1,20 @@
-Official website : https://rust.facepunch.com/
+Github repository : https://github.com/Mihoko-Okayami/rust  
+Official website : https://rust.facepunch.com/  
+Oxide website : https://umod.org/
 
-# Usage :
+# Usage :  
+
+### 1 : Use the "*update-server*" tag to update the Rust server files.
+    docker run --rm -it -v /my/rust/path:/data mihokookayami/rust:update-server
+
+### 2 : If you want to install oxide, use the "*update-oxide*" tag ( to do AFTER the server update ).  
+    docker run --rm -it -v /my/rust/path:/data mihokookayami/rust:update-oxide
+
+### 3 : Finally, launch your server with the tag "*launcher*".  
     version: "3.7"
     services:
       rust:
-        image: mihokookayami/rust
+        image: mihokookayami/rust:launcher
         container_name: rust
         network_mode: host
         volumes:
