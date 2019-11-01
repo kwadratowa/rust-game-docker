@@ -1,4 +1,3 @@
-Github repository : https://github.com/Mihoko-Okayami/rust  
 Official website : https://rust.facepunch.com/  
 Oxide website : https://umod.org/
 
