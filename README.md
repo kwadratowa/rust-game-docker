@@ -2,7 +2,7 @@
 Official website : https://rust.facepunch.com/  
 Oxide website : https://umod.org/  
   
- # Usage :  
+# Usage :  
   
 ### 1 : Use the "*update-server*" tag to update the Rust server files.
     docker run --rm -it -v /my/rust/path:/data mihokookayami/rust:update-server
