@@ -1,4 +1,3 @@
-![Rust](https://files.mihoko-okayami.fr/docker/rust/rust-logo.svg)  
 Official website : https://rust.facepunch.com/  
 Oxide website : https://umod.org/  
   
