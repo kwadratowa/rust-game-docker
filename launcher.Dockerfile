@@ -38,7 +38,7 @@ ENV SERVER_URL "$SERVER_URL"
 
 
 RUN set -eux; \
-	locale-gen en_US.UTF-8 && apt-get update && apt-get install -y libsqlite3-0 lib32gcc1; \
+	apt-get update && apt-get install -y lib32gcc1 libsqlite3-0 locales && locale-gen en_US.UTF-8; \
 	apt-get autoremove -y && apt-get clean
 
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/RustDedicated_Data/Plugins/x86_64
