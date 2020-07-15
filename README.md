@@ -24,7 +24,7 @@ Oxide website : https://umod.org/
           RCON_IP: "127.0.0.1"
           RCON_PORT: "28016"
           RCON_PASSWORD: "my-rcon-password"
-          APP_PORT: "28082"
+          APP_PORT: "28083"
           APP_LISTENIP: "127.0.0.1"
           APP_PUBLICIP: "127.0.0.1"
           SERVER_MAXPLAYERS: "100"
