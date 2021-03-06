@@ -29,10 +29,10 @@ ENV SERVER_PORT "$SERVER_PORT"
 ENV RCON_IP "$RCON_IP"
 ENV RCON_PORT "$RCON_PORT"
 ENV RCON_PASSWORD "$RCON_PASSWORD"
-ENV RCON_WEB="$RCON_WEB"
-ENV APP_PORT="$APP_PORT"
-ENV APP_LISTENIP="$APP_LISTENIP"
-ENV APP_PUBLICIP="$APP_PUBLICIP"
+ENV RCON_WEB "$RCON_WEB"
+ENV APP_PORT "$APP_PORT"
+ENV APP_LISTENIP "$APP_LISTENIP"
+ENV APP_PUBLICIP "$APP_PUBLICIP"
 ENV SERVER_MAXPLAYERS "$SERVER_MAXPLAYERS"
 ENV SERVER_HOSTNAME "$SERVER_HOSTNAME"
 ENV SERVER_IDENTITY "$SERVER_IDENTITY"
@@ -40,20 +40,21 @@ ENV SERVER_LEVEL "$SERVER_LEVEL"
 ENV SERVER_SEED "$SERVER_SEED"
 ENV SERVER_WORLDSIZE "$SERVER_WORLDSIZE"
 ENV SERVER_SAVEINTERVAL "$SERVER_SAVEINTERVAL"
-ENV SERVER_GAMEMODE="$SERVER_GAMEMODE"
+ENV SERVER_GAMEMODE "$SERVER_GAMEMODE"
 ENV SERVER_GLOBALCHAT "$SERVER_GLOBALCHAT"
 ENV SERVER_DESCRIPTION "$SERVER_DESCRIPTION"
 ENV SERVER_HEADERIMAGE "$SERVER_HEADERIMAGE"
 ENV SERVER_URL "$SERVER_URL"
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN set -eux; \
-	apt-get update && apt-get install -y lib32gcc1 libsqlite3-0 locales; \
-	sed -i -e "s/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /etc/locale.gen && dpkg-reconfigure --frontend=noninteractive locales && update-locale LANG=en_US.UTF-8; \
-	apt-get autoremove -y && apt-get clean
+	apt-get update && apt-get install -y --no-install-recommends lib32gcc1 libsqlite3-0 locales; \
+	locale-gen --purge en_US.UTF-8; \
+	apt-get remove -y locales && apt-get autoremove -y; \
+	rm -rf /tmp/* && rm -rf /var/lib/apt/lists/*
 
-ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/RustDedicated_Data/Plugins/x86_64
-
-EXPOSE 28015 28016
+ENV LD_LIBRARY_PATH "$LD_LIBRARY_PATH:/data/RustDedicated_Data/Plugins/x86_64"
 
 WORKDIR /data
 
