@@ -46,6 +46,8 @@ ENV SERVER_URL "$SERVER_URL"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update && apt-get install -y --no-install-recommends libsqlite3-0
+
 ENV LD_LIBRARY_PATH "$LD_LIBRARY_PATH:/data/RustDedicated_Data/Plugins/x86_64"
 
 WORKDIR /data
