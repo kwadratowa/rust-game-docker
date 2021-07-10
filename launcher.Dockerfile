@@ -49,7 +49,8 @@ ENV SERVER_URL "$SERVER_URL"
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN RUN set -eux; \
-	apt-get update && apt-get install -y --no-install-recommends libsqlite3-0 ca-certificates locales; \
+	dpkg --add-architecture i386; \
+	apt-get update && apt-get install -y --no-install-recommends ca-certificates libsdl2-2.0-0:i386 libsqlite3-0 locales; \
 	echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen; \
 	rm -rf /tmp/* && rm -rf /var/lib/apt/lists/*
 
