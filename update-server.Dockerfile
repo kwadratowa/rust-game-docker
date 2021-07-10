@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:stable-slim
 
 LABEL maintainer="Mihoko-Okayami (https://hub.docker.com/r/mihokookayami/rust/)"
 

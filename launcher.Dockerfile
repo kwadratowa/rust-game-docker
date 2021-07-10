@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:stable-slim
 
 LABEL maintainer="Mihoko-Okayami (https://hub.docker.com/r/mihokookayami/rust/)"
 
@@ -48,9 +48,8 @@ ENV SERVER_URL "$SERVER_URL"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN RUN set -eux; \
-	dpkg --add-architecture i386; \
-	apt-get update && apt-get install -y --no-install-recommends ca-certificates libsdl2-2.0-0:i386 libsqlite3-0 locales; \
+RUN set -eux; \
+	apt-get update && apt-get install -y --no-install-recommends ca-certificates libsdl2-2.0-0 libsqlite3-0 locales; \
 	echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen; \
 	rm -rf /tmp/* && rm -rf /var/lib/apt/lists/*
 
