@@ -48,7 +48,9 @@ ENV SERVER_URL "$SERVER_URL"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y --no-install-recommends libsqlite3-0 ca-certificates
+RUN RUN set -eux; \
+	apt-get update && apt-get install -y --no-install-recommends libsqlite3-0 ca-certificates; \
+	rm -rf /tmp/* && rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH "$LD_LIBRARY_PATH:/data/RustDedicated_Data/Plugins/x86_64"
 

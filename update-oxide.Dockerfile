@@ -1,10 +1,10 @@
-FROM debian:stable-slim
+FROM debian:latest
 
 LABEL maintainer="Mihoko-Okayami (https://hub.docker.com/r/mihokookayami/rust/)"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN set -eux; \
+RUN RUN set -eux; \
 	apt-get update && apt-get install -y --no-install-recommends ca-certificates unzip wget; \
 	rm -rf /tmp/* && rm -rf /var/lib/apt/lists/*
 
