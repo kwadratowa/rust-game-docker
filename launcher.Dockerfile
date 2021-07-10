@@ -18,6 +18,7 @@ ARG SERVER_LEVEL="Procedural Map"
 ARG SERVER_SEED="1337"
 ARG SERVER_WORLDSIZE="2048"
 ARG SERVER_SAVEINTERVAL="300"
+ARG SERVER_GAMEMODE="vanilla"
 ARG SERVER_GLOBALCHAT="true"
 ARG SERVER_DESCRIPTION="A docker server"
 ARG SERVER_HEADERIMAGE="https://avatars1.githubusercontent.com/u/1248652"
@@ -39,6 +40,7 @@ ENV SERVER_LEVEL "$SERVER_LEVEL"
 ENV SERVER_SEED "$SERVER_SEED"
 ENV SERVER_WORLDSIZE "$SERVER_WORLDSIZE"
 ENV SERVER_SAVEINTERVAL "$SERVER_SAVEINTERVAL"
+ENV SERVER_GAMEMODE "$SERVER_GAMEMODE"
 ENV SERVER_GLOBALCHAT "$SERVER_GLOBALCHAT"
 ENV SERVER_DESCRIPTION "$SERVER_DESCRIPTION"
 ENV SERVER_HEADERIMAGE "$SERVER_HEADERIMAGE"
@@ -46,10 +48,10 @@ ENV SERVER_URL "$SERVER_URL"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y --no-install-recommends libsqlite3-0
+RUN apt-get update && apt-get install -y --no-install-recommends libsqlite3-0 ca-certificates
 
 ENV LD_LIBRARY_PATH "$LD_LIBRARY_PATH:/data/RustDedicated_Data/Plugins/x86_64"
 
 WORKDIR /data
 
-CMD ./RustDedicated -batchmode -load -nographics -server.ip "$SERVER_IP" -server.port "$SERVER_PORT" -rcon.ip "$RCON_IP" -rcon.port "$RCON_PORT" -rcon.password "$RCON_PASSWORD" -rcon.web "$RCON_WEB" -app.port "$APP_PORT" -app.listenip "$APP_LISTENIP" -app.publicip "$APP_PUBLICIP" -server.maxplayers "$SERVER_MAXPLAYERS" -server.hostname "$SERVER_HOSTNAME" -server.identity "$SERVER_IDENTITY" -server.level "$SERVER_LEVEL" -server.seed "$SERVER_SEED" -server.worldsize "$SERVER_WORLDSIZE" -server.saveinterval "$SERVER_SAVEINTERVAL" -server.globalchat "$SERVER_GLOBALCHAT" -server.description "$SERVER_DESCRIPTION" -server.headerimage "$SERVER_HEADERIMAGE" -server.url "$SERVER_URL"
+CMD ./RustDedicated -batchmode -load -nographics -server.ip "$SERVER_IP" -server.port "$SERVER_PORT" -rcon.ip "$RCON_IP" -rcon.port "$RCON_PORT" -rcon.password "$RCON_PASSWORD" -rcon.web "$RCON_WEB" -app.port "$APP_PORT" -app.listenip "$APP_LISTENIP" -app.publicip "$APP_PUBLICIP" -server.maxplayers "$SERVER_MAXPLAYERS" -server.hostname "$SERVER_HOSTNAME" -server.identity "$SERVER_IDENTITY" -server.level "$SERVER_LEVEL" -server.seed "$SERVER_SEED" -server.worldsize "$SERVER_WORLDSIZE" -server.saveinterval "$SERVER_SAVEINTERVAL" -server.gamemode "$SERVER_GAMEMODE" -server.globalchat "$SERVER_GLOBALCHAT" -server.description "$SERVER_DESCRIPTION" -server.headerimage "$SERVER_HEADERIMAGE" -server.url "$SERVER_URL"
