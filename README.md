@@ -42,6 +42,7 @@ Oxide website : https://umod.org/
           SERVER_MAXPLAYERS: "32"
           SERVER_MOTD: "A docker server"
           SERVER_PORT: "28015"
+          SERVER_PVE: "false"
           SERVER_RADIATION: "true"
           SERVER_SAVEINTERVAL: "300"
           SERVER_SEED: "1337"
